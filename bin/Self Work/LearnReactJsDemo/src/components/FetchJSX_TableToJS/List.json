@@ -1,0 +1,8 @@
+ 
+[
+        {"id": "1", "name":"T1", "booked":"false"},
+        {"id": "2", "name":"T2", "booked":"false"},
+        {"id": "3", "name":"T3", "booked":"true"},
+        {"id": "4", "name":"T4", "booked":"true"},
+        {"id": "5", "name":"T5", "booked":"true"}
+]

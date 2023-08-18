@@ -1,0 +1,1 @@
+change project name in the package.json & package-lock.json
