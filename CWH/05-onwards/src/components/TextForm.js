@@ -2,16 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 
 export default function TextForm(props) {    
-    // const [text, setText] = useState("");
-    const [text, setText] = useState(localStorage.getItem('saveTxt'));
-    // const [text, setText] = useState(JSON.stringify(localStorage.getItem('saveTxt')));        
+    // const [text, setText] = useState("");    
+    const [text, setText] = useState(localStorage.getItem('saveTxt'));    
 
     // 🗃️saving to local storage -------------------
     const saveToLocalStorage = (value) => {
         localStorage.setItem('saveTxt', value);
     }
-
-
+    
     const handleClearClick = () => {
         let newTxt = '';
         setText(newTxt);
@@ -102,8 +100,8 @@ export default function TextForm(props) {
     }
 
     // 🔄️ word count and character count --------------------------------
-    let wordCount
-    wordCount = text.split(' ').length;
+    let wordCount;
+    wordCount = text.split(' ').length;    
     // console.log(text.split(' '));
     // console.log(wordCount);
 
