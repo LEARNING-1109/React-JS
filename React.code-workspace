@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"hide-files.files": [
+			"React.code-workspace",
+			".vscode",
+			"_bin"
+		]
+	}
+}
