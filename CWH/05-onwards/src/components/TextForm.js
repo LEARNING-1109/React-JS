@@ -14,6 +14,7 @@ export default function TextForm(props) {
         let newTxt = '';
         setText(newTxt);
         localStorage.setItem('saveTxt', "");
+        props.showAlert("Cleared All", "danger");
     }
     const handleOnChange = (event) => {
         // console.log('handle onChange');
@@ -27,12 +28,14 @@ export default function TextForm(props) {
 
         let newTxt = text.toUpperCase(text);
         setText(newTxt);
+        props.showAlert("Conveted to Upper Case", "primary");
 
     }
     const handleLoClick = () => {
         let newTxt = text.toLowerCase(text);
         setText(newTxt);
         saveToLocalStorage(newTxt);
+        props.showAlert("Conveted to Lower Case", "success");
     }
     const handleCapitalizedClick = () => {
         if (text !== "") {
@@ -46,23 +49,24 @@ export default function TextForm(props) {
             }
             setText(newCapitalizedTxt);
             saveToLocalStorage(newCapitalizedTxt);
+            props.showAlert("Text is Capitalized", "success");
         }
     }
     const handleInverseClick = () => {
         if (text !== "") {
             let str = text;
             // console.log(typeof (str));
-
+            
             let invert_Str = "";
             for (let i = 0; i < str.length; i++) {
                 let ch = str[i];
                 console.log(ch);
                 // console.log(ch.toUpperCase());
-
+                
                 // if (ch === ch.toUpperCase()) {
-                //     console.log(ch, " is upper case");
-                // }
-                // else if(ch === ch.toLowerCase()) {
+                    //     console.log(ch, " is upper case");
+                    // }
+                    // else if(ch === ch.toLowerCase()) {
                 //     console.log(ch, " is lower case");                
                 // }
 
@@ -74,12 +78,13 @@ export default function TextForm(props) {
                 }
                 setText(invert_Str);
                 saveToLocalStorage(invert_Str);
+                props.showAlert("Text is Inverted", "primary");
             }
         }
     }
     const handleAlternatingClick = () => {
         let alterTxt = "";
-
+        
         for (let i = 0; i < text.length; i++) {
             if (i % 2 === 0) {
                 alterTxt += text.charAt(i).toLowerCase();
@@ -92,13 +97,15 @@ export default function TextForm(props) {
         setText(alterTxt);
         console.log(text);  // ❓ why the value of text is not updating instantly 
         saveToLocalStorage(alterTxt);
+        props.showAlert("Text is aLtErNaTeD", "primary");
     }
     const handleTitleClick = () => {
         let newTxt = "___________________";
         setText(newTxt);
         saveToLocalStorage(newTxt);
+        props.showAlert("Text is aLtErNaTeD", "secondary");
     }
-
+    
     // 🔄️ word count and character count --------------------------------
     let wordCount;
     wordCount = text.split(' ').length;
@@ -109,9 +116,9 @@ export default function TextForm(props) {
     return (
         <>
             <div className={`main-container p-4 text-${props.drk_mode === 'light' ? 'dark' : 'light'} bg-${props.drk_mode}`} style={{
-                height: "90vh"
+                height: "80vh"
             }}>
-                <div className='container my-1'>
+                <div className='container my-1 p-4'>
                     <div className='mb-2'>
                         <label htmlFor="exampleFormControlTextarea1"><h3>{props.heading}</h3></label>
                         <textarea className="form-control" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="5" placeholder='Enter your text ...' ></textarea>
@@ -123,10 +130,10 @@ export default function TextForm(props) {
                         <button className="btn btn-primary" onClick={handleUpClick}>CONVERT TO UPPERCASE</button>
                         <button className="btn btn-success" onClick={handleLoClick}>convert to lowercase</button>
 
-                        <button className="btn btn-success" onClick={handleCapitalizedClick}>Capitalized Case</button>
                         <button className="btn btn-info" onClick={handleInverseClick}>iNVERSE cASE</button>
+                        <button className="btn btn-success" onClick={handleCapitalizedClick}>Capitalized Case</button>
                         <button className="btn btn-primary" onClick={handleAlternatingClick} >aLtErNaTiNg cAsE</button>
-                        <button className="btn btn-primary" disabled onClick={handleTitleClick} data-toggle="tooltip" title="Capitalization of the first word, and all other words, except for articles, prepositions, and conjunctions.This is an Example of Title Case in Use." >Title Case</button>
+                        <button className="btn btn-success" disabled onClick={handleTitleClick} data-toggle="tooltip" title="Capitalization of the first word, and all other words, except for articles, prepositions, and conjunctions.This is an Example of Title Case in Use." >Title Case</button>
                     </div>
                 </div>
                 <div className="container my-2">

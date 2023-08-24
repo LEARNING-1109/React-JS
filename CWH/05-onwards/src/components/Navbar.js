@@ -3,13 +3,6 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 export default function Navbar(props) {
-  // console.log(props.drk_mode)
-
-  const sytles = {
-    navbar_shadow: {
-    }
-  }
-
   return (
     // <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <>      
