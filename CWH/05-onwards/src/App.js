@@ -8,8 +8,10 @@ import React, { useState } from 'react';
 function App() {
   const [darkMode, setDarkMode] = useState("light");
 
+  
+
   const toggleMode = () => {
-    console.log('Toggle is clicked');
+    // console.log('Toggle is clicked');
     if (darkMode === "light") {
       setDarkMode('dark');
     }
