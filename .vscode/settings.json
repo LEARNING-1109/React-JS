@@ -13,6 +13,7 @@
         "**/React-JS.code-workspace": true,
         "React.code-workspace": true,
         ".vscode": true,
-        "_bin": true
+        "_bin": true,
+        "6_Pack_Programmer/06_react_router/node_modules": true
     }
 }
