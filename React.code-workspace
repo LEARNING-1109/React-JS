@@ -9,6 +9,7 @@
 			"React.code-workspace",
 			".vscode",
 			"_bin"
-		]
+		],
+		"git.ignoreLimitWarning": true
 	}
 }
