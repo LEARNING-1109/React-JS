@@ -3,8 +3,10 @@ import { useState } from 'react';
 
 export default function TextForm(props) {
     // const [text, setText] = useState("");    
-    const [text, setText] = useState(localStorage.getItem('saveTxt'));
-
+    const [text, setText] = useState(localStorage.getItem('saveTxt'));    
+    if(localStorage.getItem('saveTxt') === null)
+        localStorage.setItem('saveTxt', "");
+    
     // 🗃️saving to local storage -------------------
     const saveToLocalStorage = (value) => {
         localStorage.setItem('saveTxt', value);
