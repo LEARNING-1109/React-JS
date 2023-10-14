@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useParams, useNavigate } from 'react-router-dom' // ⭐⭐
 
-export default function User() {
+export default function User({name="Regular User"}) {
 
     const params = useParams();
     console.log(params.id);
@@ -11,7 +11,7 @@ export default function User() {
 
     return (
         <div id='user-page' >
-            User Page
+            User Page: {name}
             {/* <button type="button" onClick={()=>{ navigate("/about") }} >Click Me to Navigate </button> */}
             
         </div>
