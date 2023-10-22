@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.my-custom{
+  @apply text-blue-800 bg-red-300 font-bold text-3xl;
+}
+.my-custom2{
+  color: red
+}
