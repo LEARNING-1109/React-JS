@@ -9,10 +9,10 @@ React Component Lifecycle:
 
 import React from 'react';
 import NameComp from './NameComp';
-import Unmount from './Unmount';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Home from './components/Home';
 import About from './components/About';
+import Navbar from './components/Navbar';
 
 class App extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class App extends React.Component {
   increment() {
     this.setState({
       count: this.state.count + 1,
-    })    
+    })
 
     // Agar should shouldComponentUpdate() me return false hai, then UI me value update nhi hogi, but console me value change hota rahega.
     console.log("Count Value : ", this.state.count)
@@ -49,13 +49,14 @@ class App extends React.Component {
   }
 
   shouldComponentUpdate() {
-    let bool = false;
+    let bool = true;
     console.log('shouldComponentUpdate : ', bool);
     return bool;
   }
 
   componentWillUnmount() {
     console.log("Unmounting");
+    return false;
   }
 
   render() {
@@ -63,15 +64,24 @@ class App extends React.Component {
     return (
       <>
         {console.log('3. Inside the return method')}
-        React Life Cycle         
-        <span className='my-custom block my-4' >count: {this.state.count} </span>        
+        React Life Cycle
+        <span className='my-custom block my-4' >count: {this.state.count} </span>
         <button onClick={this.increment} className="my-4 mx-4 bg-blue-500 text-white hover:bg-blue-700 font-semibold py-2 px-4 rounded">
           Increment
         </button>
-                
+
         <NameComp />
+
+
+        <Router>
+          <Navbar />
+
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+          </Routes>
+        </Router>
         
-   
       </>
     )
   }
