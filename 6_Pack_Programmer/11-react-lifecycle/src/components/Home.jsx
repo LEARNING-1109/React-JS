@@ -25,8 +25,6 @@ import React, { useEffect } from 'react'
 // ------- 🎯 Home Element using Functional component ---------------------
 
 // ------- 🟢 Home Element using Class Based component ---------------------
-
-
 const moveOverFunc = (e) => {
   console.log(e.clientX)
 }

@@ -27,6 +27,7 @@ class App extends React.Component {
   incrementFun() {
     console.log('Working +');
 
+    // 🎯⭐ Different ways to update value inside the function
     this.setState({ count: this.state.count + 1 })
 
     // this.setState((prev) => {
@@ -43,11 +44,12 @@ class App extends React.Component {
 
   }
 
+  // ⭐⭐⭐🎯 Different ways to handle change in the input tag
   handleChange(e) {
     this.setState({
       // myName: 'Ayush'  // not working
       myName: e.target.value
-    
+
     })
   }
 
@@ -77,7 +79,7 @@ class App extends React.Component {
         </div>
 
         <NameComp name={this.state.myName} />
-        {/* <NameComp name={46} /> */}
+        <NameComp name={46} />
         {/* <NameComp name={[46]} /> */}
 
       </>
